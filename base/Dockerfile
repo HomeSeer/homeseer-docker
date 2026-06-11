@@ -21,7 +21,7 @@ ENV HOMESEER_FOLDER="/homeseer"
 # docker container image labels
 LABEL org.label-schema.schema-version="1.0"
 LABEL org.label-schema.build-date=$BUILDDATE
-LABEL org.label-schema.name="spudwebb/homeseer-base"
+LABEL org.label-schema.name="ghcr.io/spudwebb/homeseer-base"
 LABEL org.label-schema.description="HomeSeer Base Docker Image"
 LABEL org.label-schema.url="https://homeseer.com/"
 LABEL org.label-schema.vcs-url="https://github.com/spudwebb/homeseer-docker"
