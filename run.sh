@@ -19,7 +19,7 @@ docker run \
        --env LANG=en_US.UTF-8 \
        --env HOMESEER_CREDENTIALS="default:default" \
        --env DOCKER_HOMESEER_HOST_ROOT="/usr/local/homeseer" \
-       spudwebb/homeseer:latest $@
+       ghcr.io/spudwebb/homeseer:latest $@
 
 # PUBLISHED IP PORTS
 # -------------------------

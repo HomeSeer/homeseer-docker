@@ -35,6 +35,11 @@ jobs:
       packages: write
 
     steps:
+      - name: Lowercase repository owner
+        run: echo "OWNER_LC=${OWNER,,}" >> $GITHUB_ENV
+        env:
+          OWNER: ${{ github.repository_owner }}
+
       - name: Checkout
         uses: actions/checkout@v6
 
@@ -56,7 +61,7 @@ jobs:
           HS_VERSION: ${{ inputs.hs_version }}
           BUILD_MODE: ${{ inputs.mode }}
           CHANNEL: ${{ inputs.channel }}
-          IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/homeseer
+          IMAGE_NAME: ghcr.io/${{ env.OWNER_LC }}/homeseer
         run: |
           chmod +x build.sh
 
