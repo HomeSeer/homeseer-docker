@@ -13,4 +13,4 @@ echo
 docker buildx rm homeseer-builder || true
 
 # remove any containers from local Docker registry
-docker images -a | grep "spudwebb/homeseer" | awk '{print $3}' | xargs docker rmi -f
+docker images -a | grep "ghcr.io/spudwebb/homeseer" | awk '{print $3}' | xargs docker rmi -f

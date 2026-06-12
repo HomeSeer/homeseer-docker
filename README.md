@@ -1,6 +1,3 @@
-[![Docker](https://img.shields.io/docker/v/spudwebb/homeseer/latest?color=darkgreen&logo=docker&label=DockerHub%20Latest%20Image)](https://hub.docker.com/repository/docker/spudwebb/homeseer/)
-[![Docker](https://img.shields.io/docker/v/spudwebb/homeseer/beta?color=red&logo=docker&label=DockerHub%20Beta%20Image)](https://hub.docker.com/repository/docker/spudwebb/homeseer/)
-
 # Docker Container for HomeSeer 4 (Linux)
 
 
@@ -8,10 +5,9 @@
 
 This project provides Docker container images for HomeSeer 4 on Linux.     
 
-The docker images are published via Docker Hub:
- - [https://hub.docker.com/repository/docker/spudwebb/homeseer](https://hub.docker.com/repository/docker/spudwebb/homeseer)
- - [![Docker](https://img.shields.io/docker/v/spudwebb/homeseer/latest?label=DockerHub%20Latest%20Image&logo=docker&style=social)](https://hub.docker.com/repository/docker/spudwebb/homeseer/)
- - [![Docker](https://img.shields.io/docker/v/spudwebb/homeseer/beta?label=DockerHub%20Beta%20Image&logo=docker&style=social)](https://hub.docker.com/repository/docker/spudwebb/homeseer/)
+The docker images are published via GitHub Container Registry: [![Container](https://img.shields.io/badge/Container-ghcr.io-blue?logo=docker)](https://github.com/spudwebb/homeseer-docker/pkgs/container/homeseer)
+- the `latest` tag tracks the docker image for the latest HS4 release version
+- the `beta` tag tracks the docker image for the latest HS4 beta version
 
 ---
 
@@ -51,7 +47,7 @@ docker run \
        --env LANG=en_US.UTF-8 \
        --env HOMESEER_CREDENTIALS="default:default" \
        --env DOCKER_HOMESEER_HOST_ROOT="/usr/local/homeseer" \
-       spudwebb/homeseer:latest
+       ghcr.io/spudwebb/homeseer:latest
 ```
 
 On the first run of the `homeseer` container, the script will take a few minutes while it 
@@ -74,10 +70,10 @@ Below is a sample `docker-compose.yml` file you can use to get started:
 services:
   homeseer:
     container_name: homeseer
-    image: spudwebb/homeseer:latest
+    image: ghcr.io/spudwebb/homeseer:latest
     hostname: homeseer
     restart: unless-stopped
-	stop_grace_period: 1m
+    stop_grace_period: 1m
     network_mode: bridge
     volumes:
       - /usr/local/homeseer:/homeseer

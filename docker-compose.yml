@@ -1,7 +1,7 @@
 services:
   homeseer:
     container_name: homeseer
-    image: spudwebb/homeseer:latest
+    image: ghcr.io/spudwebb/homeseer:latest
     hostname: homeseer
     restart: unless-stopped
     stop_grace_period: 1m
