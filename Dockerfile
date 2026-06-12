@@ -1,7 +1,7 @@
 #########################################
 # HOMESEER (V4) LINUX - DOCKERFILE
 #########################################
-FROM ghcr.io/spudwebb/homeseer-base:latest
+FROM ghcr.io/homeseer/homeseer-base:latest
 ARG TARGETARCH
 ARG BUILDDATE
 ARG VERSION
@@ -11,7 +11,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # docker container image labels
 LABEL org.opencontainers.image.description="HomeSeer Docker Image"
 LABEL org.opencontainers.image.version="${VERSION}"
-LABEL org.opencontainers.image.source="https://github.com/spudwebb/homeseer-docker"
+LABEL org.opencontainers.image.source="https://github.com/HomeSeer/homeseer-docker"
 
 
 RUN echo "========================================================="

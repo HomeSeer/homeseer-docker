@@ -21,7 +21,7 @@ ENV HOMESEER_FOLDER="/homeseer"
 # docker container image labels
 LABEL org.opencontainers.image.description="HomeSeer Base Docker Image"
 LABEL org.opencontainers.image.version="${VERSION}"
-LABEL org.opencontainers.image.source="https://github.com/spudwebb/homeseer-docker"
+LABEL org.opencontainers.image.source="https://github.com/HomeSeer/homeseer-docker"
 
 RUN echo "================================================================" && \
     echo "  BUILDING DOCKER HOMESEER BASE ($VERSION) IMAGE FOR: $TARGETARCH $TARGETVARIANT" && \

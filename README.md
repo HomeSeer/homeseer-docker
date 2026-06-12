@@ -5,7 +5,7 @@
 
 This project provides Docker container images for HomeSeer 4 on Linux.     
 
-The docker images are published via GitHub Container Registry: [![Container](https://img.shields.io/badge/Container-ghcr.io-blue?logo=docker)](https://github.com/spudwebb/homeseer-docker/pkgs/container/homeseer)
+The docker images are published via GitHub Container Registry: [![Container](https://img.shields.io/badge/Container-ghcr.io-blue?logo=docker)](https://github.com/HomeSeer/homeseer-docker/pkgs/container/homeseer)
 - the `latest` tag tracks the docker image for the latest HS4 release version
 - the `beta` tag tracks the docker image for the latest HS4 beta version
 
@@ -47,7 +47,7 @@ docker run \
        --env LANG=en_US.UTF-8 \
        --env HOMESEER_CREDENTIALS="default:default" \
        --env DOCKER_HOMESEER_HOST_ROOT="/usr/local/homeseer" \
-       ghcr.io/spudwebb/homeseer:latest
+       ghcr.io/homeseer/homeseer:latest
 ```
 
 On the first run of the `homeseer` container, the script will take a few minutes while it 
@@ -70,7 +70,7 @@ Below is a sample `docker-compose.yml` file you can use to get started:
 services:
   homeseer:
     container_name: homeseer
-    image: ghcr.io/spudwebb/homeseer:latest
+    image: ghcr.io/homeseer/homeseer:latest
     hostname: homeseer
     restart: unless-stopped
     stop_grace_period: 1m
