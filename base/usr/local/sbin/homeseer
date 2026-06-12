@@ -207,7 +207,7 @@ function stop_homeseer {
   do
       echo "--> CALLING SHUTDOWN API ON HOMESEER SERVER PORT: $HOMESEER_PORT"
       CURL_ERROR=0;
-      curl -f -s -o /dev/null ${HOMESEER_CREDENTIALS:+-u} $HOMESEER_CREDENTIALS --data 'ConfirmShutdownhs=Yes' "http://localhost:$HOMESEER_PORT/LinuxTools" || CURL_ERROR=$?;
+      curl -f -s -o /dev/null ${HOMESEER_CREDENTIALS:+-u} $HOMESEER_CREDENTIALS --data 'action=shutdown_hs' "http://localhost:$HOMESEER_PORT/system.html" || CURL_ERROR=$?;
       test $CURL_ERROR -eq 0 && break
       echo "--> [$i] SHUTDOWN API CALL FAILED WITH ERROR: $CURL_ERROR; RETRYING IN 2 SECONDS"
       sleep 2
