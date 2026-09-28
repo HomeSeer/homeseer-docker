@@ -62,6 +62,11 @@ RUN rm -f /usr/share/keyrings/mono-official-archive-keyring.gpg && \
     apt-get install --yes mono-complete mono-devel mono-vbnc mono-xsp4 referenceassemblies-pcl ca-certificates-mono && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
 
+# mono-vbnc's own binary is broken on this Mono version; mono-roslyn's vbc
+# is a working, modern VB.NET compiler that serves as a drop-in replacement
+RUN mv /usr/bin/vbnc /usr/bin/vbnc_old && \
+    ln -s /usr/bin/vbc /usr/bin/vbnc
+
 # install HomeSeer dependencies
 # alsa-base (not available in Debian upstream)
 RUN apt-get update && \
@@ -69,6 +74,13 @@ RUN apt-get update && \
                           avahi-discover libavahi-compat-libdnssd-dev libnss-mdns  \
                           avahi-daemon avahi-utils mdns-scan && \
     apt-get remove --yes brltty && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# install additional tools used by custom plugins/scripts
+RUN apt-get update && \
+    apt-get install --yes jq sqlite3 libsqlite3-0 \
+                          android-sdk-platform-tools libsodium-dev \
+                          htop vim zip && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # copy container homeseer override scripts
